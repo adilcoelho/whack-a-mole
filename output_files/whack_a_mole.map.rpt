@@ -1,0 +1,814 @@
+Analysis & Synthesis report for whack_a_mole
+Wed Jun 12 14:01:51 2019
+Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: Top-level Entity: |whack_a_mole
+ 14. Parameter Settings for User Entity Instance: debounce:dbc_rst
+ 15. Parameter Settings for User Entity Instance: debounce:dbc_startGame
+ 16. Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:0:dbc_hammers_X
+ 17. Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:1:dbc_hammers_X
+ 18. Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:2:dbc_hammers_X
+ 19. Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:3:dbc_hammers_X
+ 20. Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:4:dbc_hammers_X
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 23. Elapsed Time Per Partition
+ 24. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++---------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                    ;
++------------------------------------+--------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jun 12 14:01:51 2019      ;
+; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Revision Name                      ; whack_a_mole                               ;
+; Top-level Entity Name              ; whack_a_mole                               ;
+; Family                             ; Cyclone III                                ;
+; Total logic elements               ; 3,295                                      ;
+;     Total combinational functions  ; 3,290                                      ;
+;     Dedicated logic registers      ; 182                                        ;
+; Total registers                    ; 182                                        ;
+; Total pins                         ; 41                                         ;
+; Total virtual pins                 ; 0                                          ;
+; Total memory bits                  ; 0                                          ;
+; Embedded Multiplier 9-bit elements ; 0                                          ;
+; Total PLLs                         ; 0                                          ;
++------------------------------------+--------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16F484C6       ;                    ;
+; Top-level entity name                                                      ; whack_a_mole       ; whack_a_mole       ;
+; Family name                                                                ; Cyclone III        ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+; debounce.vhd                     ; yes             ; User VHDL File               ; H:/UTFPR/8Periodo/logRec/whack_a_mole/debounce.vhd                 ;         ;
+; whack_a_mole.vhd                 ; yes             ; User VHDL File               ; H:/UTFPR/8Periodo/logRec/whack_a_mole/whack_a_mole.vhd             ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; h:/altera/13.1/quartus/libraries/megafunctions/lpm_divide.tdf      ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; h:/altera/13.1/quartus/libraries/megafunctions/abs_divider.inc     ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; h:/altera/13.1/quartus/libraries/megafunctions/sign_div_unsign.inc ;         ;
+; aglobal131.inc                   ; yes             ; Megafunction                 ; h:/altera/13.1/quartus/libraries/megafunctions/aglobal131.inc      ;         ;
+; db/lpm_divide_cbm.tdf            ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/lpm_divide_cbm.tdf        ;         ;
+; db/sign_div_unsign_anh.tdf       ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/sign_div_unsign_anh.tdf   ;         ;
+; db/alt_u_div_v8f.tdf             ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/alt_u_div_v8f.tdf         ;         ;
+; db/add_sub_unc.tdf               ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/add_sub_unc.tdf           ;         ;
+; db/add_sub_vnc.tdf               ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/add_sub_vnc.tdf           ;         ;
+; db/lpm_divide_01p.tdf            ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/lpm_divide_01p.tdf        ;         ;
+; db/abs_divider_4dg.tdf           ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/abs_divider_4dg.tdf       ;         ;
+; db/alt_u_div_t8f.tdf             ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/alt_u_div_t8f.tdf         ;         ;
+; db/lpm_abs_9v9.tdf               ; yes             ; Auto-Generated Megafunction  ; H:/UTFPR/8Periodo/logRec/whack_a_mole/db/lpm_abs_9v9.tdf           ;         ;
++----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 3,295     ;
+;                                             ;           ;
+; Total combinational functions               ; 3290      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 1159      ;
+;     -- 3 input functions                    ; 1187      ;
+;     -- <=2 input functions                  ; 944       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 1969      ;
+;     -- arithmetic mode                      ; 1321      ;
+;                                             ;           ;
+; Total registers                             ; 182       ;
+;     -- Dedicated logic registers            ; 182       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 41        ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 182       ;
+; Total fan-out                               ; 10539     ;
+; Average fan-out                             ; 2.96      ;
++---------------------------------------------+-----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                         ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node                     ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                             ; Library Name ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------+
+; |whack_a_mole                                  ; 3290 (494)        ; 182 (175)    ; 0           ; 0            ; 0       ; 0         ; 41   ; 0            ; |whack_a_mole                                                                                                                   ; work         ;
+;    |debounce:\dbc_hammers_gen:0:dbc_hammers_X| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:\dbc_hammers_gen:0:dbc_hammers_X                                                                         ; work         ;
+;    |debounce:\dbc_hammers_gen:1:dbc_hammers_X| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:\dbc_hammers_gen:1:dbc_hammers_X                                                                         ; work         ;
+;    |debounce:\dbc_hammers_gen:2:dbc_hammers_X| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:\dbc_hammers_gen:2:dbc_hammers_X                                                                         ; work         ;
+;    |debounce:\dbc_hammers_gen:3:dbc_hammers_X| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:\dbc_hammers_gen:3:dbc_hammers_X                                                                         ; work         ;
+;    |debounce:\dbc_hammers_gen:4:dbc_hammers_X| ; 0 (0)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:\dbc_hammers_gen:4:dbc_hammers_X                                                                         ; work         ;
+;    |debounce:dbc_rst|                          ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:dbc_rst                                                                                                  ; work         ;
+;    |debounce:dbc_startGame|                    ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|debounce:dbc_startGame                                                                                            ; work         ;
+;    |lpm_divide:Div0|                           ; 1206 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Div0                                                                                                   ; work         ;
+;       |lpm_divide_01p:auto_generated|          ; 1206 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Div0|lpm_divide_01p:auto_generated                                                                     ; work         ;
+;          |abs_divider_4dg:divider|             ; 1206 (63)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Div0|lpm_divide_01p:auto_generated|abs_divider_4dg:divider                                             ; work         ;
+;             |alt_u_div_t8f:divider|            ; 1078 (1077)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Div0|lpm_divide_01p:auto_generated|abs_divider_4dg:divider|alt_u_div_t8f:divider                       ; work         ;
+;                |add_sub_vnc:add_sub_1|         ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Div0|lpm_divide_01p:auto_generated|abs_divider_4dg:divider|alt_u_div_t8f:divider|add_sub_vnc:add_sub_1 ; work         ;
+;             |lpm_abs_9v9:my_abs_den|           ; 65 (65)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Div0|lpm_divide_01p:auto_generated|abs_divider_4dg:divider|lpm_abs_9v9:my_abs_den                      ; work         ;
+;    |lpm_divide:Mod0|                           ; 1588 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Mod0                                                                                                   ; work         ;
+;       |lpm_divide_cbm:auto_generated|          ; 1588 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Mod0|lpm_divide_cbm:auto_generated                                                                     ; work         ;
+;          |sign_div_unsign_anh:divider|         ; 1588 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Mod0|lpm_divide_cbm:auto_generated|sign_div_unsign_anh:divider                                         ; work         ;
+;             |alt_u_div_v8f:divider|            ; 1588 (1588)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |whack_a_mole|lpm_divide:Mod0|lpm_divide_cbm:auto_generated|sign_div_unsign_anh:divider|alt_u_div_v8f:divider                   ; work         ;
++------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                     ;
++----------------------------------------------------------+---------------------------------------------+
+; Register name                                            ; Reason for Removal                          ;
++----------------------------------------------------------+---------------------------------------------+
+; hitSuccess                                               ; Stuck at GND due to stuck port data_in      ;
+; Score[0..6]                                              ; Stuck at GND due to stuck port clock        ;
+; currentScore_s[0..6]                                     ; Stuck at GND due to stuck port clock        ;
+; \gameControl:speed[1]                                    ; Merged with moleVelocity[1]                 ;
+; \gameControl:speed[31]                                   ; Merged with moleVelocity[31]                ;
+; \gameControl:speed[30]                                   ; Merged with moleVelocity[30]                ;
+; \gameControl:speed[29]                                   ; Merged with moleVelocity[29]                ;
+; \gameControl:speed[28]                                   ; Merged with moleVelocity[28]                ;
+; \gameControl:speed[27]                                   ; Merged with moleVelocity[27]                ;
+; \gameControl:speed[26]                                   ; Merged with moleVelocity[26]                ;
+; \gameControl:speed[25]                                   ; Merged with moleVelocity[25]                ;
+; \gameControl:speed[24]                                   ; Merged with moleVelocity[24]                ;
+; \gameControl:speed[23]                                   ; Merged with moleVelocity[23]                ;
+; \gameControl:speed[22]                                   ; Merged with moleVelocity[22]                ;
+; \gameControl:speed[21]                                   ; Merged with moleVelocity[21]                ;
+; \gameControl:speed[20]                                   ; Merged with moleVelocity[20]                ;
+; \gameControl:speed[19]                                   ; Merged with moleVelocity[19]                ;
+; \gameControl:speed[18]                                   ; Merged with moleVelocity[18]                ;
+; \gameControl:speed[17]                                   ; Merged with moleVelocity[17]                ;
+; \gameControl:speed[16]                                   ; Merged with moleVelocity[16]                ;
+; \gameControl:speed[15]                                   ; Merged with moleVelocity[15]                ;
+; \gameControl:speed[14]                                   ; Merged with moleVelocity[14]                ;
+; \gameControl:speed[13]                                   ; Merged with moleVelocity[13]                ;
+; \gameControl:speed[12]                                   ; Merged with moleVelocity[12]                ;
+; \gameControl:speed[11]                                   ; Merged with moleVelocity[11]                ;
+; \gameControl:speed[10]                                   ; Merged with moleVelocity[10]                ;
+; \gameControl:speed[9]                                    ; Merged with moleVelocity[9]                 ;
+; \gameControl:speed[8]                                    ; Merged with moleVelocity[8]                 ;
+; \gameControl:speed[7]                                    ; Merged with moleVelocity[7]                 ;
+; \gameControl:speed[6]                                    ; Merged with moleVelocity[6]                 ;
+; \gameControl:speed[5]                                    ; Merged with moleVelocity[5]                 ;
+; \gameControl:speed[4]                                    ; Merged with moleVelocity[4]                 ;
+; \gameControl:speed[3]                                    ; Merged with moleVelocity[3]                 ;
+; \gameControl:speed[2]                                    ; Merged with moleVelocity[2]                 ;
+; \gameControl:speed[0]                                    ; Merged with moleVelocity[0]                 ;
+; seed[1]                                                  ; Stuck at GND due to stuck port data_in      ;
+; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[31]    ; Stuck at GND due to stuck port data_in      ;
+; debounce:dbc_rst|counter[31]                             ; Stuck at GND due to stuck port data_in      ;
+; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[31]    ; Stuck at GND due to stuck port data_in      ;
+; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[31]    ; Stuck at GND due to stuck port data_in      ;
+; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[31]    ; Stuck at GND due to stuck port data_in      ;
+; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[31]    ; Stuck at GND due to stuck port data_in      ;
+; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[0..30] ; Stuck at GND due to stuck port clock_enable ;
+; debounce:dbc_startGame|counter[31]                       ; Stuck at GND due to stuck port data_in      ;
+; debounce:dbc_rst|counter[0..30]                          ; Stuck at GND due to stuck port clock_enable ;
+; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[0..30] ; Stuck at GND due to stuck port clock_enable ;
+; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[0..30] ; Stuck at GND due to stuck port clock_enable ;
+; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[0..30] ; Stuck at GND due to stuck port clock_enable ;
+; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[0..30] ; Stuck at GND due to stuck port clock_enable ;
+; debounce:dbc_startGame|counter[0..30]                    ; Stuck at GND due to stuck port clock_enable ;
+; Total Number of Removed Registers = 272                  ;                                             ;
++----------------------------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                                                  ;
++-------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------+
+; Register name                                         ; Reason for Removal        ; Registers Removed due to This Register                                                   ;
++-------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------+
+; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[31] ; Stuck at GND              ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[1],                                    ;
+;                                                       ; due to stuck port data_in ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[2],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[3],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[4],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[5],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[6],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[7],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[8],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[9],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[10],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[11],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[12],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[13],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[14],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[15],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[16],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[17],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[18],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[19],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[20],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[21],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[22],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[23],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[24],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[25],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[26],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[27],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[28],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[29],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:0:dbc_hammers_X|counter[30]                                    ;
+; debounce:dbc_rst|counter[31]                          ; Stuck at GND              ; debounce:dbc_rst|counter[1], debounce:dbc_rst|counter[2],                                ;
+;                                                       ; due to stuck port data_in ; debounce:dbc_rst|counter[3], debounce:dbc_rst|counter[4],                                ;
+;                                                       ;                           ; debounce:dbc_rst|counter[5], debounce:dbc_rst|counter[6],                                ;
+;                                                       ;                           ; debounce:dbc_rst|counter[7], debounce:dbc_rst|counter[8],                                ;
+;                                                       ;                           ; debounce:dbc_rst|counter[9], debounce:dbc_rst|counter[10],                               ;
+;                                                       ;                           ; debounce:dbc_rst|counter[11], debounce:dbc_rst|counter[12],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[13], debounce:dbc_rst|counter[14],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[15], debounce:dbc_rst|counter[16],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[17], debounce:dbc_rst|counter[18],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[19], debounce:dbc_rst|counter[20],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[21], debounce:dbc_rst|counter[22],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[23], debounce:dbc_rst|counter[24],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[25], debounce:dbc_rst|counter[26],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[27], debounce:dbc_rst|counter[28],                              ;
+;                                                       ;                           ; debounce:dbc_rst|counter[29], debounce:dbc_rst|counter[30]                               ;
+; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[31] ; Stuck at GND              ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[1],                                    ;
+;                                                       ; due to stuck port data_in ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[2],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[3],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[4],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[5],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[6],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[7],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[8],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[9],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[10],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[11],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[12],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[13],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[14],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[15],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[16],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[17],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[18],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[19],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[20],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[21],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[22],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[23],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[24],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[25],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[26],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[27],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[28],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[29],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:1:dbc_hammers_X|counter[30]                                    ;
+; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[31] ; Stuck at GND              ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[1],                                    ;
+;                                                       ; due to stuck port data_in ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[2],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[3],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[4],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[5],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[6],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[7],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[8],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[9],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[10],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[11],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[12],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[13],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[14],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[15],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[16],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[17],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[18],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[19],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[20],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[21],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[22],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[23],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[24],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[25],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[26],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[27],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[28],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[29],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:2:dbc_hammers_X|counter[30]                                    ;
+; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[31] ; Stuck at GND              ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[1],                                    ;
+;                                                       ; due to stuck port data_in ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[2],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[3],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[4],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[5],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[6],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[7],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[8],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[9],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[10],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[11],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[12],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[13],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[14],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[15],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[16],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[17],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[18],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[19],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[20],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[21],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[22],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[23],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[24],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[25],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[26],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[27],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[28],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[29],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:3:dbc_hammers_X|counter[30]                                    ;
+; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[31] ; Stuck at GND              ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[1],                                    ;
+;                                                       ; due to stuck port data_in ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[2],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[3],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[4],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[5],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[6],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[7],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[8],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[9],                                    ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[10],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[11],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[12],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[13],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[14],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[15],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[16],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[17],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[18],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[19],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[20],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[21],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[22],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[23],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[24],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[25],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[26],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[27],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[28],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[29],                                   ;
+;                                                       ;                           ; debounce:\dbc_hammers_gen:4:dbc_hammers_X|counter[30]                                    ;
+; debounce:dbc_startGame|counter[31]                    ; Stuck at GND              ; debounce:dbc_startGame|counter[1], debounce:dbc_startGame|counter[2],                    ;
+;                                                       ; due to stuck port data_in ; debounce:dbc_startGame|counter[3], debounce:dbc_startGame|counter[4],                    ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[5], debounce:dbc_startGame|counter[6],                    ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[7], debounce:dbc_startGame|counter[8],                    ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[9], debounce:dbc_startGame|counter[10],                   ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[11], debounce:dbc_startGame|counter[12],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[13], debounce:dbc_startGame|counter[14],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[15], debounce:dbc_startGame|counter[16],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[17], debounce:dbc_startGame|counter[18],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[19], debounce:dbc_startGame|counter[20],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[21], debounce:dbc_startGame|counter[22],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[23], debounce:dbc_startGame|counter[24],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[25], debounce:dbc_startGame|counter[26],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[27], debounce:dbc_startGame|counter[28],                  ;
+;                                                       ;                           ; debounce:dbc_startGame|counter[29], debounce:dbc_startGame|counter[30]                   ;
+; hitSuccess                                            ; Stuck at GND              ; Score[6], Score[5], Score[4], Score[3], Score[2], Score[1], Score[0], currentScore_s[6], ;
+;                                                       ; due to stuck port data_in ; currentScore_s[5], currentScore_s[4], currentScore_s[3], currentScore_s[2],              ;
+;                                                       ;                           ; currentScore_s[1], currentScore_s[0]                                                     ;
++-------------------------------------------------------+---------------------------+------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 182   ;
+; Number of registers using Synchronous Clear  ; 1     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 47    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 125   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; seed[0]                                ; 5       ;
+; moleVelocity[0]                        ; 66      ;
+; moleVelocity[31]                       ; 97      ;
+; \gameControl:counterTotal[0]           ; 2       ;
+; \gameControl:counterTotal[31]          ; 2       ;
+; \gameControl:counterStepUpSpeed[0]     ; 2       ;
+; \gameControl:counterStepUpSpeed[31]    ; 34      ;
+; Total number of inverted registers = 7 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |whack_a_mole|eachMoleOnTime[0][1]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |whack_a_mole|eachMoleOnTime[1][0]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |whack_a_mole|eachMoleOnTime[2][1]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |whack_a_mole|eachMoleOnTime[3][1]                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |whack_a_mole|eachMoleOnTime[4][0]                ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 30 LEs               ; 60 LEs                 ; Yes        ; |whack_a_mole|\gameControl:counterTotal[26]       ;
+; 5:1                ; 30 bits   ; 90 LEs        ; 30 LEs               ; 60 LEs                 ; Yes        ; |whack_a_mole|\gameControl:counterStepUpSpeed[7]  ;
+; 7:1                ; 30 bits   ; 120 LEs       ; 30 LEs               ; 90 LEs                 ; Yes        ; |whack_a_mole|moleVelocity[2]                     ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |whack_a_mole|\gameControl:counterTotal[31]       ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 2 LEs                ; 4 LEs                  ; Yes        ; |whack_a_mole|\gameControl:counterStepUpSpeed[31] ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |whack_a_mole|moleVelocity[31]                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |whack_a_mole ;
++-------------------+-------+--------------------------------------------------+
+; Parameter Name    ; Value ; Type                                             ;
++-------------------+-------+--------------------------------------------------+
+; freq_clk          ; 1     ; Signed Integer                                   ;
+; NUM_HOLES         ; 5     ; Signed Integer                                   ;
+; MAX_GAME_LEVEL    ; 10    ; Signed Integer                                   ;
+; GAME_TIME_SECONDS ; 20    ; Signed Integer                                   ;
+; NUM_SEG_DISPLAY   ; 7     ; Signed Integer                                   ;
+; MIN_VALUE         ; 0     ; Signed Integer                                   ;
+; MAX_VALUE         ; 99    ; Signed Integer                                   ;
++-------------------+-------+--------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:dbc_rst ;
++----------------+-------+--------------------------------------+
+; Parameter Name ; Value ; Type                                 ;
++----------------+-------+--------------------------------------+
+; time_ms        ; 1     ; Signed Integer                       ;
+; freq_clk       ; 1     ; Signed Integer                       ;
++----------------+-------+--------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:dbc_startGame ;
++----------------+-------+--------------------------------------------+
+; Parameter Name ; Value ; Type                                       ;
++----------------+-------+--------------------------------------------+
+; time_ms        ; 1     ; Signed Integer                             ;
+; freq_clk       ; 1     ; Signed Integer                             ;
++----------------+-------+--------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:0:dbc_hammers_X ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; time_ms        ; 1     ; Signed Integer                                                ;
+; freq_clk       ; 1     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:1:dbc_hammers_X ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; time_ms        ; 1     ; Signed Integer                                                ;
+; freq_clk       ; 1     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:2:dbc_hammers_X ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; time_ms        ; 1     ; Signed Integer                                                ;
+; freq_clk       ; 1     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:3:dbc_hammers_X ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; time_ms        ; 1     ; Signed Integer                                                ;
+; freq_clk       ; 1     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: debounce:\dbc_hammers_gen:4:dbc_hammers_X ;
++----------------+-------+---------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                          ;
++----------------+-------+---------------------------------------------------------------+
+; time_ms        ; 1     ; Signed Integer                                                ;
+; freq_clk       ; 1     ; Signed Integer                                                ;
++----------------+-------+---------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 33             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_cbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                ;
+; LPM_WIDTHD             ; 32             ; Untyped                ;
+; LPM_NREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_DREPRESENTATION    ; SIGNED         ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; FALSE          ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_01p ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:06     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+    Info: Processing started: Wed Jun 12 14:01:42 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off whack_a_mole -c whack_a_mole
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file debounce.vhd
+    Info (12022): Found design unit 1: debounce-arch
+    Info (12023): Found entity 1: debounce
+Info (12021): Found 2 design units, including 1 entities, in source file whack_a_mole.vhd
+    Info (12022): Found design unit 1: whack_a_mole-arch
+    Info (12023): Found entity 1: whack_a_mole
+Info (12127): Elaborating entity "whack_a_mole" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at whack_a_mole.vhd(59): used implicit default value for signal "molesPosition" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10542): VHDL Variable Declaration warning at whack_a_mole.vhd(99): used initial value expression for variable "maxMoleSpawnTime" because variable was never assigned a value
+Warning (10542): VHDL Variable Declaration warning at whack_a_mole.vhd(107): used initial value expression for variable "moleLifeLenght" because variable was never assigned a value
+Warning (10492): VHDL Process Statement warning at whack_a_mole.vhd(197): signal "currentScore_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at whack_a_mole.vhd(197): signal "highScore_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at whack_a_mole.vhd(198): signal "currentScore_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at whack_a_mole.vhd(204): signal "highScore_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at whack_a_mole.vhd(205): signal "currentScore_s" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10631): VHDL Process Statement warning at whack_a_mole.vhd(189): inferring latch(es) for signal or variable "highScore_s", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "highScore_s[0]" at whack_a_mole.vhd(189)
+Info (10041): Inferred latch for "highScore_s[1]" at whack_a_mole.vhd(189)
+Info (10041): Inferred latch for "highScore_s[2]" at whack_a_mole.vhd(189)
+Info (10041): Inferred latch for "highScore_s[3]" at whack_a_mole.vhd(189)
+Info (10041): Inferred latch for "highScore_s[4]" at whack_a_mole.vhd(189)
+Info (10041): Inferred latch for "highScore_s[5]" at whack_a_mole.vhd(189)
+Info (10041): Inferred latch for "highScore_s[6]" at whack_a_mole.vhd(189)
+Info (12128): Elaborating entity "debounce" for hierarchy "debounce:dbc_rst"
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Mod0"
+Info (12133): Instantiated megafunction "lpm_divide:Mod0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "33"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_cbm.tdf
+    Info (12023): Found entity 1: lpm_divide_cbm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_anh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_anh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_v8f.tdf
+    Info (12023): Found entity 1: alt_u_div_v8f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_unc.tdf
+    Info (12023): Found entity 1: add_sub_unc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_vnc.tdf
+    Info (12023): Found entity 1: add_sub_vnc
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0"
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "32"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "SIGNED"
+    Info (12134): Parameter "LPM_HINT" = "LPM_REMAINDERPOSITIVE=FALSE"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_01p.tdf
+    Info (12023): Found entity 1: lpm_divide_01p
+Info (12021): Found 1 design units, including 1 entities, in source file db/abs_divider_4dg.tdf
+    Info (12023): Found entity 1: abs_divider_4dg
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_t8f.tdf
+    Info (12023): Found entity 1: alt_u_div_t8f
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_abs_9v9.tdf
+    Info (12023): Found entity 1: lpm_abs_9v9
+Info (13014): Ignored 31 buffer(s)
+    Info (13016): Ignored 31 CARRY_SUM buffer(s)
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Current_Score[0]" is stuck at GND
+    Warning (13410): Pin "Current_Score[1]" is stuck at GND
+    Warning (13410): Pin "Current_Score[2]" is stuck at GND
+    Warning (13410): Pin "Current_Score[3]" is stuck at GND
+    Warning (13410): Pin "Current_Score[4]" is stuck at GND
+    Warning (13410): Pin "Current_Score[5]" is stuck at GND
+    Warning (13410): Pin "Current_Score[6]" is stuck at VCC
+    Warning (13410): Pin "Current_Score[7]" is stuck at GND
+    Warning (13410): Pin "Current_Score[8]" is stuck at GND
+    Warning (13410): Pin "Current_Score[9]" is stuck at GND
+    Warning (13410): Pin "Current_Score[10]" is stuck at GND
+    Warning (13410): Pin "Current_Score[11]" is stuck at GND
+    Warning (13410): Pin "Current_Score[12]" is stuck at GND
+    Warning (13410): Pin "Current_Score[13]" is stuck at VCC
+    Warning (13410): Pin "high_Score[0]" is stuck at GND
+    Warning (13410): Pin "high_Score[1]" is stuck at GND
+    Warning (13410): Pin "high_Score[2]" is stuck at GND
+    Warning (13410): Pin "high_Score[3]" is stuck at GND
+    Warning (13410): Pin "high_Score[4]" is stuck at GND
+    Warning (13410): Pin "high_Score[5]" is stuck at GND
+    Warning (13410): Pin "high_Score[6]" is stuck at VCC
+    Warning (13410): Pin "high_Score[7]" is stuck at GND
+    Warning (13410): Pin "high_Score[8]" is stuck at GND
+    Warning (13410): Pin "high_Score[9]" is stuck at GND
+    Warning (13410): Pin "high_Score[10]" is stuck at GND
+    Warning (13410): Pin "high_Score[11]" is stuck at GND
+    Warning (13410): Pin "high_Score[12]" is stuck at GND
+    Warning (13410): Pin "high_Score[13]" is stuck at VCC
+Info (286030): Timing-Driven Synthesis is running
+Info (17016): Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Div0|lpm_divide_01p:auto_generated|abs_divider_4dg:divider|alt_u_div_t8f:divider|add_sub_30_result_int[0]~62"
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 3337 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 8 input pins
+    Info (21059): Implemented 33 output pins
+    Info (21061): Implemented 3296 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 39 warnings
+    Info: Peak virtual memory: 4741 megabytes
+    Info: Processing ended: Wed Jun 12 14:01:51 2019
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:09
+
+
