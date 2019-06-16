@@ -1,6 +1,6 @@
 Flow report for whack_a_mole
-Wed Jun 12 14:12:22 2019
-Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+Sun Jun 16 19:39:23 2019
+Quartus II 64-Bit Version 13.0.0 Build 156 04/24/2013 SJ Web Edition
 
 
 ---------------------
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Wed Jun 12 14:12:22 2019      ;
-; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Web Edition ;
+; Flow Status                        ; Successful - Sun Jun 16 19:39:23 2019      ;
+; Quartus II 64-Bit Version          ; 13.0.0 Build 156 04/24/2013 SJ Web Edition ;
 ; Revision Name                      ; whack_a_mole                               ;
 ; Top-level Entity Name              ; whack_a_mole                               ;
 ; Family                             ; Cyclone III                                ;
 ; Device                             ; EP3C16F484C6                               ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 3,991 / 15,408 ( 26 % )                    ;
-;     Total combinational functions  ; 3,937 / 15,408 ( 26 % )                    ;
-;     Dedicated logic registers      ; 536 / 15,408 ( 3 % )                       ;
-; Total registers                    ; 536                                        ;
-; Total pins                         ; 41 / 347 ( 12 % )                          ;
+; Total logic elements               ; 4,730 / 15,408 ( 31 % )                    ;
+;     Total combinational functions  ; 4,623 / 15,408 ( 30 % )                    ;
+;     Dedicated logic registers      ; 882 / 15,408 ( 6 % )                       ;
+; Total registers                    ; 882                                        ;
+; Total pins                         ; 51 / 347 ( 15 % )                          ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 0 / 516,096 ( 0 % )                        ;
 ; Embedded Multiplier 9-bit elements ; 0 / 112 ( 0 % )                            ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 06/12/2019 14:11:11 ;
+; Start date & time ; 06/16/2019 19:37:28 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; whack_a_mole        ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                                                  ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+--------------------------------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 31032335741009.156035947113064                         ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 9210263431753.156072464703180                          ; --            ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                                     ; --            ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; H:/UTFPR/8Periodo/logRec/whack_a_mole/simulation/qsim/ ; --            ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                            ; --            ; --          ; eda_simulation ;
@@ -97,12 +97,12 @@ applicable agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:00:09     ; 1.0                     ; 4741 MB             ; 00:00:09                           ;
-; Fitter                    ; 00:00:42     ; 1.0                     ; 5024 MB             ; 00:00:41                           ;
-; Assembler                 ; 00:00:01     ; 1.0                     ; 4613 MB             ; 00:00:02                           ;
-; TimeQuest Timing Analyzer ; 00:00:08     ; 1.0                     ; 4711 MB             ; 00:00:07                           ;
-; EDA Netlist Writer        ; 00:00:02     ; 1.0                     ; 4573 MB             ; 00:00:01                           ;
-; Total                     ; 00:01:02     ; --                      ; --                  ; 00:01:00                           ;
+; Analysis & Synthesis      ; 00:00:19     ; 1.0                     ; 4686 MB             ; 00:00:13                           ;
+; Fitter                    ; 00:00:49     ; 1.0                     ; 4879 MB             ; 00:00:43                           ;
+; Assembler                 ; 00:00:06     ; 1.0                     ; 4549 MB             ; 00:00:02                           ;
+; TimeQuest Timing Analyzer ; 00:00:37     ; 1.0                     ; 4711 MB             ; 00:00:29                           ;
+; EDA Netlist Writer        ; 00:00:01     ; 1.0                     ; 4550 MB             ; 00:00:01                           ;
+; Total                     ; 00:01:52     ; --                      ; --                  ; 00:01:28                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -111,11 +111,11 @@ applicable agreement for further details.
 +---------------------------+------------------+-----------+------------+----------------+
 ; Module Name               ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +---------------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis      ; DESKTOP-L7LJUV6  ; Windows 7 ; 6.2        ; x86_64         ;
-; Fitter                    ; DESKTOP-L7LJUV6  ; Windows 7 ; 6.2        ; x86_64         ;
-; Assembler                 ; DESKTOP-L7LJUV6  ; Windows 7 ; 6.2        ; x86_64         ;
-; TimeQuest Timing Analyzer ; DESKTOP-L7LJUV6  ; Windows 7 ; 6.2        ; x86_64         ;
-; EDA Netlist Writer        ; DESKTOP-L7LJUV6  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis      ; DESKTOP-Q6MO3QT  ; Windows 7 ; 6.2        ; x86_64         ;
+; Fitter                    ; DESKTOP-Q6MO3QT  ; Windows 7 ; 6.2        ; x86_64         ;
+; Assembler                 ; DESKTOP-Q6MO3QT  ; Windows 7 ; 6.2        ; x86_64         ;
+; TimeQuest Timing Analyzer ; DESKTOP-Q6MO3QT  ; Windows 7 ; 6.2        ; x86_64         ;
+; EDA Netlist Writer        ; DESKTOP-Q6MO3QT  ; Windows 7 ; 6.2        ; x86_64         ;
 +---------------------------+------------------+-----------+------------+----------------+
 
 
